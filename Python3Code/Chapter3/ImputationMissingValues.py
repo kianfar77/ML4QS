@@ -26,3 +26,8 @@ class ImputationMissingValues:
         # And fill the initial data points if needed:
         dataset[col] = dataset[col].fillna(method='bfill')
         return dataset
+
+    def impute_quadratic_regression(self, dataset, col):
+        dataset[col] = dataset[col].interpolate(method='quadratic')
+        dataset[col] = dataset[col].fillna(method='bfill')
+        return dataset
